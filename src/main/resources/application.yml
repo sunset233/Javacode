@@ -1,0 +1,3 @@
+spring:  datasource:    driver-class-name: com.mysql.jdbc.Driver    url: jdbc:mysql://127.0.0.1:3306/novel?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false    username: root    password: 112233
+server:
+  port: 8083 mybatis:  type-aliases-package:  com.model  config-location: classpath:mybatis/mybatis-config.xml  mapper-locations: classpath:mybatis/mapper/*.xml  pagehelper:  helper-dialect: mysql  params: count=countSql  reasonable: true  support-methods-arguments: truethymeleaf:    prefix: classpath:/templates/    suffix: ".html"#

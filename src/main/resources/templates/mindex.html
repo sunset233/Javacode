@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+    <title>在线阅读管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+    <!-- CSS Libs -->
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/bootstrap-switch.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/checkbox3.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/dataTables.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/select2.min.css">
+    <!-- CSS App -->
+    <link rel="stylesheet" type="text/css" href="../static/admin/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/css/themes/flat-blue.css">
+</head>
+
+<body class="flat-blue">
+    <div class="app-container">
+        <div class="row content-container">
+            <nav class="navbar navbar-default navbar-fixed-top navbar-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-expand-toggle">
+                            <i class="fa fa-bars icon"></i>
+                        </button>
+                        <ol class="breadcrumb navbar-breadcrumb">
+                            <li class="active">管理员页面</li>
+                        </ol>
+                        <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
+                            <i class="fa fa-th icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+            <div class="side-menu sidebar-inverse">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="side-menu-container">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">
+                                <div class="icon fa fa-paper-plane"></div>
+                                <div class="title">尊敬的管理员欢迎您！</div>
+                            </a>
+                            <button type="button" class="navbar-expand-toggle pull-right visible-xs">
+                                <i class="fa fa-times icon"></i>
+                            </button>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href='http://localhost:8083/mindex/user'>
+                                    <span class="icon fa fa-tachometer"></span><span class="title">个人主页</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href='http://localhost:8083/mindex/user'>
+                                    <span class="icon fa fa-desktop"></span><span class="title">小说管理</span>
+                                </a>
+                                <!-- Dropdown level 1 -->
+                               
+                            </li>
+                            <li class="active">
+                                <a href='/mindex/onshelf'>
+                                    <span class="icon fa fa-table"></span><span class="title">小说上架</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a  href="#dropdown-form">
+                                    <span class="icon fa fa-file-text-o"></span><span class="title">业务处理</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+            </div>
+    <!--main content start-->
+    
+
+    
+    <section id="main-content" th:each="list1:${list}">
+      <section class="wrapper">
+        <div class="col-md-6 col-sm-12">
+        <tr >
+                                    <div class="thumbnail no-margin-bottom">
+                                        
+                                        <div class="caption">
+                                        <img th:src="${list1.covers}">
+                                            <h3 id="thumbnail-label">  <th> 名称： </th>  <td th:text="${list1.nname}" id=nname>  </td><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                                            <p>
+                                             <h4><th>编号:</th><a th:href="@{/chapter?nid={nid}(nid=${list1.nid})}" th:text="${list1.nid}"> </a> </h4>
+                                             
+                                             <th> 类型:</th>    <td th:text="${list1.nkind}"></td>
+                                             <th> 作者:</th> <td th:text="${list1.author}"></td>
+                                             <th> 阅读量:</th>   <td th:text="${list1.amount}" ></td>
+                                             <th> 收藏量:</th>  <td th:text="${list1.colamount}"></td>
+                                             <br>
+                                             <th> 简介:</th><td th:text="${list1.brief}"></td>
+       
+                                            </p>
+                                            <p>
+                                            <th><a th:href="@{/mindex/insert?nid={nid}(nid=${list1.nid})}" th:text="增加章节"></a></th><br>
+                                            <th><a th:href="@{/mindex/downshelf?nid={nid}(nid=${list1.nid})}" th:text="下架小说"></a></th>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+      </section>
+      <div class="text-right">
+        <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
+          -->
+        </div>
+      </div>
+    </section>
+    <!--main content end-->
+  </section>
+  <!-- container section start -->
+
+  <!-- Javascript Libs -->
+            <script type="text/javascript" src="../static/admin/dist/lib/js/jquery.min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/Chart.min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/bootstrap-switch.min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/jquery.matchHeight-min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/jquery.dataTables.min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/dataTables.bootstrap.min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/select2.full.min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/ace/ace.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/ace/mode-html.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/ace/theme-github.js"></script>
+            <!-- Javascript -->
+            <script type="text/javascript" src="../static/admin/js/app.js"></script>
+            <script type="text/javascript" src="../static/admin/js/index.js"></script>
+</body>
+
+</html>
+
+    <script>
+      //knob
+      $(function() {
+        $(".knob").knob({
+          'draw': function() {
+            $(this.i).val(this.cv + '%')
+          }
+        })
+      });
+
+      //carousel
+      $(document).ready(function() {
+        $("#owl-slider").owlCarousel({
+          navigation: true,
+          slideSpeed: 300,
+          paginationSpeed: 400,
+          singleItem: true
+
+        });
+      });
+
+      //custom select box
+
+      $(function() {
+        $('select.styled').customSelect();
+      });
+
+      /* ---------- Map ---------- */
+      $(function() {
+        $('#map').vectorMap({
+          map: 'world_mill_en',
+          series: {
+            regions: [{
+              values: gdpData,
+              scale: ['#000', '#000'],
+              normalizeFunction: 'polynomial'
+            }]
+          },
+          backgroundColor: '#eef3f7',
+          onLabelShow: function(e, el, code) {
+            el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+          }
+        });
+      });
+    </script>
+    <script type="text/javascript">
+$(function(){
+			$(document).ready(function(){
+				
+		
+			      $("#addchapter").click(function(){
+			            
+			    	  var json = {  
+			                'nid':$('${list1.nid}').val(),  
+			                };
+			    	  console.log(json)
+			            var route = window.location.href;
+			                var postdata = JSON.stringify(json);//json对象转换json字符串
+			              alert(postdata);
+			                $.ajax({  
+			                type : 'POST',  
+			                contentType : 'application/json;charset=UTF-8',//注意类型  
+			                processData : false,  
+			                url : '/Chapter/chapters',  
+			                dataType : 'json',  
+			                data : postdata,  
+			                success : function(data) {  
+			                    alert("注册成功");
+			                    window.location.href="http://localhost:8083/mindex"
+			                   
+			                }indow.location.reload();
+			                }  
+			              }); 
+			      });
+			    });
+			}
+	})
+})
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+

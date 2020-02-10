@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>男人的书屋</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/vendor.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+    <!-- pageheader
+    ================================================== -->
+    <section class="s-pageheader s-pageheader--home">
+        <header class="header">
+            <div class="header__content row">
+
+                <div class="header__logo">
+                    <a class="logo" href="index.html">
+                        <img src="/static/images/男人的书屋.png" alt="Homepage">
+                    </a>
+                </div> <!-- end header__logo -->
+
+                <ul class="header__social">
+                    <li>
+                         <li><a href="http://localhost:8083/Login/user" title="" >登录</a></li>       <!--实现-->           
+						 <li><a href="#0" title="">/</a></li>
+						 <li><a href="http://localhost:8083/Registe/user" title="">注册</a></li>    <!--实现-->
+                    </li>
+                    <li>
+                        
+                    </li>
+                    
+                </ul> <!-- end header__social -->
+
+
+                <a class="header__search-trigger" href="#0"></a>
+
+                <div class="header__search">
+
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">搜索:</span>
+                            <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="search-submit" value="Search">
+                    </form>
+        
+                    <a href="#0" title="Close Search" class="header__overlay-close">Close</a>
+
+                </div>  <!-- end header__search -->
+
+
+                <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
+
+                <nav class="header__nav-wrap">
+
+                    <h2 class="header__nav-heading h6">Site Navigation</h2>
+
+                    <ul class="header__nav">
+                        <li class="current"><a href="/mainpage" title="">主页</a></li>
+						<li><a href="/Novellist" title="">全部作品</a></li>
+                        <li class="has-children">
+                            <a href="#0" title="">作品分类</a>
+                            <ul class="sub-menu">
+                            <li><a href="category.html">玄幻</a></li>
+                            <li><a href="category.html">悬疑</a></li>
+                            <li><a href="category.html">都市</a></li>
+                            <li><a href="category.html">爱情</a></li>
+                            <li><a href="category.html">科幻</a></li>
+                            <li><a href="category.html">历史</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#0" title="">排行榜</a>
+                        </li>
+                    </ul> <!-- end header__nav -->
+
+                    <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
+
+                </nav> <!-- end header__nav-wrap -->
+
+            </div> <!-- header-content -->
+        </header> <!-- header -->
+
+
+        <div class="pageheader-content row">
+            <div class="col-full">
+
+                <div class="featured">
+
+                 <div align="center">
+    <table border="1">
+  
+        <tr th:each="novellist:${pageInfo.list}">
+        <article class="masonry__brick entry format-quote" data-aos="" >
+            <div class="entry__thumb">
+                 <blockquote>
+                       <a th:text="${novellist.nname}" th:href="@{/chapter?nid={nid}(nid=${novellist.nid})}" >${novellist.nname}</a>&nbsp;
+    
+                         <cite> <a th:text="${novellist.author}">${novellist.author}</a>&nbsp;</cite>
+                         <cite> <a th:text="${novellist.brief}">${novellist.brief}</a>&nbsp;</cite>
+                        </blockquote>
+                    </div>   
+    
+                </article> <!-- end article -->
+        
+     
+         <!-- <a th:href="@{/chapter?nid={nid}(nid=${novellist.nid})}" th:text="${novellist.nid}" ><font color:"white">${novellist.nid}</font></a>&nbsp;
+            <a th:text="${novellist.nname}" th:href="@{/chapter?nid={nid}(nid=${novellist.nid})}" >${novellist.nname}</a>&nbsp;
+            <a th:text="${novellist.nkind}" >${novellist.nkind}</a>&nbsp;
+             <a th:text="${novellist.author}">${novellist.author}</a>&nbsp;
+             <a th:text="${novellist.amount}">${novellist.amount}</a>&nbsp;
+             <a th:text="${novellist.brief}">${novellist.brief}</a><br> -->
+              
+           <!--  <td th:text="${novellist.nid}" onclick="location.href='@{/chapter?nid={nid}(nid=${novellist.nid})};'" ></td>
+            <td th:text="${novellist.nname}" onclick="location.href='/content?nid=111&chapter=qeq';"></td>
+            <td th:text="${novellist.nkind}" ></td>
+             <td th:text="${novellist.author}"></td>
+             <td th:text="${novellist.amount}"></td>
+             <td th:text="${novellist.brief}"></td>
+             -->
+        </tr>
+        <!--  <script type="text/javascript" th:inline="javascript">
+            function query() {
+                $.ajax({
+
+                    //几个参数需要注意一下
+                    type: "GET",//方法类型
+                    // dataType: "content",//预期服务器返回的数据类型
+                    url: "/content?nid=111&chapter=qeq",
+
+                    
+                    success: function (data) {
+                        //   console.log(result);//打印服务端返回的数据(调试用)
+                      alert("success");
+              
+
+                    },
+
+                    error: function () {
+                        alert("信息错误,请重新输入")
+                        window.location.reload();
+                    }
+                });
+            }
+        </script> -->
+    </table>
+    <p>当前 <span th:text="${pageInfo.pageNum}"></span> 页,总 <span th:text="${pageInfo.pages}"></span> 页,共 <span th:text="${pageInfo.total}"></span> 条记录</p>
+    <a th:href="@{/Novellist}">首页</a>
+    <a th:href="@{/Novellist(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}">上一页</a>
+    <a th:href="@{/Novellist(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a>
+    
+    <a th:href="@{/Novellist(pageNum=${pageInfo.pages})}">尾页</a>
+
+</div>
+                            </div> <!-- end entry__content -->-->
+
+                        </div> <!-- end entry -->
+
+                    </div> <!-- end featured__small -->
+                </div> <!-- end featured -->
+
+            </div> <!-- end col-full -->
+        </div> <!-- end pageheader-content row -->
+
+    </section> <!-- end s-pageheader -->
+
+
+    <!-- s-content
+    ================================================== -->
+    
+
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+            <div class="line-scale">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+
+
+

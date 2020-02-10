@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+    
+    
+    <link data-ignore="true" rel="shortcut icon" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.c443c.ico">
+    <link data-ignore="true" rel="Bookmark" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.c443c.ico">
+    <link rel="stylesheet" data-ignore="true" href="//qidian.gtimg.com/c/=/qd/css/lbfUI/css/icon.a578d.css,/qd/css/lbfUI/css/Drag.41d31.css,/qd/css/lbfUI/css/Checkbox.ef549.css,/qd/css/reset.ddecf.css,/qd/css/global.d41d8.css,/qd/css/font.1727c.css,/qd/css/module.a841b.css,/qd/css/footer.5bdba.css,/qd/css/read.0ec3c.css,/qd/css/review.64e5b.css,/qd/css/emoji.3b60e.css,/qd/css/layout.5de0f.css,/qd/css/qd_popup.ed72c.css,/qd/css/book_popup.18f47.css,/qd/css/vote_popup.3844d.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/qd/css/lbfUI/css/Panel.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/qd/css/lbfUI/css/LightTip.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/qd/css/lbfUI/css/Popup.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/qd/css/lbfUI/css/Drag.css">
+    <style name="lbf-overlay">.lbf-overlay { position:fixed; top:0; left:0;}</style>
+    
+    
+</head>
+<body>
+
+
+
+
+<head class="crumbs-nav" data-l1="1">
+    <tr th:each="novellist:${novel}">
+    <a href="/UIndex/uuuu" data-eid="qd_G01">首页</a><em class="iconfont"></em> 
+   <!--  <a class="act" target="_blank" id="bookImg" data-bid="1010734492" th:text="${novellist.content}"></a><em class="iconfont"></em> -->
+</head>
+
+
+
+
+
+<div align="center">
+
+
+
+<div class="text-wrap" id="chapter-389530091" data-cid="389530091" data-purl="//read.qidian.com/chapter/ORlSeSgZ6E_MQzCecGvf7A2/lfZcLXoukbFp4rPq4Fd4KQ2" data-nurl="//read.qidian.com/chapter/ORlSeSgZ6E_MQzCecGvf7A2/tSuREBNwaBdOBDFlr9quQA2" data-info="0|389530212|389530107|0|0">
+    
+  <tr th:each="noveldetails:${pageInfo.list}">  
+    <div class="main-text-wrap">
+        <div class="text-head">
+            <a class="book-mark" title="书签" data-cid="389530091" data-bid="1010734492" data-auid="4362771" data-eid="qd_R104"></a>
+            <h3 class="j_chapterName" data-type="2"></h3>
+              <!--   <span class="content-wrap" ><a th:text="${noveldetails.chapter}">${noveldetails.chapter}</a><br></span> --> 
+                  <span class="content-wrap" style=" font-size: 40px;font-family: LiSu;" th:text="${noveldetails.chapter}"></span><br>
+                       <p style="font-family: STKaiti;font-size: 25px;text-indent: 69px;letter-spacing: 4px;line-height: 3em;margin-left: 150px;margin-right: 150px;" th:text="${noveldetails.content}" ></p><br>
+        
+       <!--  <div class="admire-wrap">
+            <a class="report-btn" id="j_reportBtn"  data-eid="qd_R106"><em class="iconfont"></em>举报</a>
+            <div class="read-btn-box">
+                <a class="admire lang j_admireBtn"  data-showtype="3" data-eid="qd_R105">赞赏</a>
+            </div>
+       </div> -->
+</div>
+    <a style="margin-left:50px" th:href="@{/content(nid=${noveldetails.nid},cid=${noveldetails.cid}-1)}">上一章</a>
+     <a style="margin-left:100px" th:href="@{/chapter(nid=${noveldetails.nid})}">回到目录</a>
+    <a style="margin-left:100px" th:href="@{/content(nid=${noveldetails.nid},cid=${noveldetails.cid}+1)}">下一章</a>
+</div>
+
+</div>
+</div>
+
+</html>

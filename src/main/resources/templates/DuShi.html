@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>男人的书屋</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/vendor.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link data-ignore="true" rel="shortcut icon" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.c443c.ico">
+	<link data-ignore="true" rel="Bookmark" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.c443c.ico">   
+	<link rel="stylesheet" data-ignore="true" href="//qidian.gtimg.com/c/=/qd/css/lbfUI/css/Checkbox.ef549.css,/qd/css/reset.ddecf.css,/qd/css/global.d41d8.css,/qd/css/font.1727c.css,/qd/css/header.17852.css,/qd/css/module.a841b.css,/qd/css/list_module.37b81.css,/qd/css/all_finish.82227.css,/qd/css/layout.5de0f.css,/qd/css/qd_popup.ed72c.css,/qd/css/footer.5bdba.css,/qd/css/lbfUI/css/ComboBox.8997f.css,/qd/css/lbfUI/css/Button.e5a3e.css">   
+	<link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/qd/css/lbfUI/css/Dropdown.css">
+	<link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/qd/css/lbfUI/css/Autocomplete.css">
+	<link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/qd/css/lbfUI/css/Popup.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+    <!-- pageheader
+    ================================================== -->
+    <section  class="s-pageheaderAllProducts">
+        <header class="header">
+            <div class="header__content row">
+
+                <div class="header__logo">
+                    <a class="logo" href="index.html">
+                        <img src="/static/images/男人的书屋.png" alt="Homepage">
+                    </a>
+                </div> <!-- end header__logo -->
+
+                
+
+
+                <a class="header__search-trigger" href="#0"></a>
+
+                <div class="header__search">
+
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">搜索:</span>
+                            <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="search-submit" value="Search">
+                    </form>
+        
+                    <a href="#0" title="Close Search" class="header__overlay-close">Close</a>
+
+                </div>  <!-- end header__search -->
+
+
+                <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
+
+                <nav class="header__nav-wrap">
+
+                    <h2 class="header__nav-heading h6">Site Navigation</h2>
+
+                    <ul class="header__nav">
+                        <li><a href="/UIndex/uuuu" title="">主页</a></li>
+						<li ><a href="/UIndex/AllProducts" title="">全部作品</a></li>
+                        <li class="has-children current">
+                            <a href="#0" title="">都市</a>
+                            <ul class="sub-menu">
+                            <li><a href="/UIndex/XuanHuan">玄幻</a></li>
+                            <li><a href="/UIndex/XuanYi">悬疑</a></li>
+                            <li><a href="/UIndex/DuShi">都市</a></li>
+                            <li><a href="/UIndex/AiQing">爱情</a></li>
+                            <li><a href="/UIndex/KeHuan">科幻</a></li>
+                            <li><a href="/UIndex/LiShi">历史</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#0" title="">排行榜</a>
+                        </li>
+                        <li><a href="style-guide.html" title="">个人信息</a></li>	
+                    </ul> <!-- end header__nav -->
+
+                    <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
+
+                </nav> <!-- end header__nav-wrap -->
+
+            </div> <!-- header-content -->
+        </header> <!-- header -->
+      <div style="margin-left:250px">
+      <div class="main-content-wrap fl" data-l1="5">
+            
+<div class="tool-bar cf">
+</div>
+
+           
+<div class="all-book-list">
+    
+        <div class="book-img-text">
+            <ul class="all-img-list cf">
+                
+               <tr th:each="novellist:${pageInfo.list}">
+                <li data-rid="1">
+                <div class="book-img-box">
+                    <a th:href="@{/chapter?nid={nid}(nid=${novellist.nid})}" data-bid="1010734492" data-eid="qd_B57" target="_blank"><img src="//bookcover.yuewen.com/qdbimg/349573/1010734492/150"></a>
+                </div>
+                <div class="book-mid-info">
+                    <h4><a th:href="@{/chapter?nid={nid}(nid=${novellist.nid})}" target="_blank" data-eid="qd_B58" data-bid="1010734492" th:text="${novellist.nname}"></a></h4>
+                    <p class="author">
+                        <img src="//qidian.gtimg.com/qd/images/ico/user.f22d3.png"><a class="name" data-eid="qd_B59" target="_blank" th:text="${novellist.author}"></a><em>|</em><a  target="_blank" data-eid="qd_B60" th:text="${novellist.nkind}"></a><em>|</em>
+                        
+                    </p>
+                    <p class="intro" th:text="${novellist.brief}"></p>
+                </div>
+                </li>
+                </tr>                 
+            </ul>
+    </div>
+     <p>当前 <span th:text="${pageInfo.pageNum}"></span> 页,总 <span th:text="${pageInfo.pages}"></span> 页,共 <span th:text="${pageInfo.total}"></span> 条记录</p>
+    <a align="left" th:href="@{/UIndex/Dushi}">首页</a>
+    <a th:href="@{/UIndex/DuShi(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}">上一页</a>
+    <a th:href="@{/UIndex/Dushi(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a>
+    
+    <a align="right" th:href="@{/UIndex/AllProducts(pageNum=${pageInfo.pages})}">尾页</a>
+    
+</div>
+<!-- <div class="page-box cf">
+    <div class="pagination fr" data-eid="qd_C44" id="page-container" data-pagemax="5" data-page="1">
+        
+
+
+
+<div class="lbf-pagination">
+<ul class="lbf-pagination-item-list">
+
+<li class="lbf-pagination-item"><a href="javascript:;" class="lbf-pagination-prev lbf-pagination-disabled">&lt;</a></li>
+
+<li class="lbf-pagination-item"><a data-page="1" href="" class="lbf-pagination-page  lbf-pagination-current">1</a></li>
+
+
+
+<li class="lbf-pagination-item"><a data-page="2" href="" class="lbf-pagination-page  ">2</a></li>
+
+<li class="lbf-pagination-item"><a data-page="3" href="" class="lbf-pagination-page  ">3</a></li>
+
+<li class="lbf-pagination-item"><a data-page="4" href="" class="lbf-pagination-page  ">4</a></li>
+
+<li class="lbf-pagination-item"><a data-page="5" href="" class="lbf-pagination-page  ">5</a></li>
+
+
+
+<li class="lbf-pagination-item"><a href="下一页链接" class="lbf-pagination-next ">&gt;</a></li>
+
+</ul> -->
+<!-- 跳转函数
+<script>
+function PAGINATION_goInput(){
+	function setParam(param,paramVal,url){
+		if(!url){url="javascript:;";
+		return url
+	}
+		var theAnchor=null;
+		var newAdditionalURL="";
+		var tempArray=url.split("?");
+		var baseURL=tempArray[0];
+		var additionalURL=tempArray[1];
+		var temp="";
+		if(additionalURL){
+			var tmpAnchor=additionalURL.split("#");
+			var TheParams=tmpAnchor[0];
+			theAnchor=tmpAnchor[1];
+			if(theAnchor)additionalURL=TheParams;
+			tempArray=additionalURL.split("&");
+			for(o=0;o<tempArray.length;o++){
+				if(tempArray[o].split("=")[0]!=param){
+					newAdditionalURL+=temp+tempArray[o];
+					temp="&"
+					}
+				}
+			}
+		else{
+			var tmpAnchor=baseURL.split("#");
+			var TheParams=tmpAnchor[0];
+			theAnchor=tmpAnchor[1];
+			if(TheParams)baseURL=TheParams
+			}
+		if(theAnchor)paramVal+="#"+theAnchor;
+		var rowsTxt=temp+""+param+"="+paramVal;
+		return "//www.qidian.com/all"+"?"+newAdditionalURL+rowsTxt};location.href=setParam("page",document.getElementById("PAGINATION-INPUT").value,location.href)
+}
+</script>
+ -->
+<!-- 
+<div class="lbf-pagination-jump"><input id="PAGINATION-INPUT" type="text" class="lbf-pagination-input" value="1"><a href="javascript:;" id="PAGINATION-BUTTON" onclick="PAGINATION_goInput()" class="lbf-pagination-go">GO</a></div>
+ -->
+
+</div>
+    </div>
+</div>
+
+        </div>
+      </div>  
+        
+
+
+      
+
+</body>
+
+</html>
