@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>男人的书屋</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/vendor.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="/static/js/modernizr.js"></script>
+    <script src="/static/js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+    <!-- pageheader
+    ================================================== -->
+    <section class="s-pageheader s-pageheader--home">
+
+        <header class="header">
+            <div class="header__content row">
+
+                <div class="header__logo">
+                    <a class="logo" href="index.html">
+                        <img src="/static/images/男人的书屋.png" alt="Homepage">
+                    </a>
+                </div> <!-- end header__logo -->
+
+                <ul class="header__social">
+                    <li>
+                         <li><a href="/Login/user" title="">登录</a></li>       <!--实现-->           
+						 <li><a href="#0" title="">/</a></li>
+						 <li><a href="register.html" title="">注册</a></li>    <!--实现-->
+                    </li>
+                    <li>
+                        
+                    </li>
+                    
+                </ul> <!-- end header__social -->
+
+
+                <a class="header__search-trigger" href="#0"></a>
+
+                <div class="header__search">
+
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">搜索:</span>
+                            <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="search-submit" value="Search">
+                    </form>
+        
+                    <a href="#0" title="Close Search" class="header__overlay-close">Close</a>
+
+                </div>  <!-- end header__search -->
+
+
+                <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
+
+                <nav class="header__nav-wrap">
+
+                    <h2 class="header__nav-heading h6">Site Navigation</h2>
+
+                    <ul class="header__nav">
+                        <li class="current"><a href="index.html" title="">主页</a></li>
+						<li><a href="about.html" title="">全部作品</a></li>
+                        <li class="has-children">
+                            <a href="#0" title="">作品分类</a>
+                            <ul class="sub-menu">
+                            <li><a href="category.html">玄幻</a></li>
+                            <li><a href="category.html">悬疑</a></li>
+                            <li><a href="category.html">都市</a></li>
+                            <li><a href="category.html">爱情</a></li>
+                            <li><a href="category.html">科幻</a></li>
+                            <li><a href="category.html">历史</a></li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="http://localhost:8083/Rank/ranks" title="">排行榜</a>
+                        </li>
+                    </ul> <!-- end header__nav -->
+
+                    <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
+
+                </nav> <!-- end header__nav-wrap -->
+               <div id="wrap">
+        <ul>
+            <li class="show"><a href=""><p style="text-align: center"><img src="/static/images/a.jpg"></p></a></li>
+            <li><a href=""><p style="text-align: center"><img src="/static/images/b.jpg"></p></a></li>
+            <li><a href=""><p style="text-align: center"><img src="/static/images/c.jpg"></p></a></li>
+            <li><a href=""><p style="text-align: center"><img src="/static/images/d.jpg"></p></a></li>
+            <li><a href=""><p style="text-align: center"><img src="/static/images/e.jpg"></p></a></li>
+        </ul>
+        <ol>
+            <li class="on"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            
+        </ol>
+
+        <span class="btn left"><</span>
+        <span class="btn right">></span>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>    
+
+    <style type="text/css">
+        *{
+            margin: 0px;
+            padding:0px;
+        }
+
+        #wrap{
+            width: 1200px;
+            height: 403px;
+            background: #000000;
+            position: relative;
+            margin: 50px auto;
+            align-items: center; 
+            left: 0;
+            top: 0;
+        } 
+
+        #wrap ul{
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 200%;
+            height: 200%;
+            align-items: center; 
+        }
+
+        #wrap ul li{
+            position: absolute;
+            display: none;
+
+        }
+
+        #wrap ul li.show{
+            display: block;
+        }
+
+        #wrap ol{
+            position: absolute;
+            height: 15px;
+            width: 113px;
+            background: none;
+            left: 20px;
+            bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center; 
+        }
+        #wrap ol li.on{
+            background: white;
+        }
+
+        #wrap ol li{
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background: none;
+            align-items: center; 
+        }
+
+        #wrap span.btn{
+            position: absolute;
+            height: 35px;
+            width: 25px;
+            top: 0;
+            bottom: 0;
+            background: rgb(256,256,256,256);
+            text-align: center;
+            line-height: 35px;
+            margin: auto;
+            color: none;
+            align-items: center; 
+        }
+
+        #wrap span.left{
+            left: 0;
+        }
+        #wrap span.right{
+            right: 0;
+        }
+
+        ul li{
+            list-style: none;
+        }
+        ol li{
+            list-style: none;
+        }
+        
+
+    </style>
+
+    <script type="text/javascript">
+        var index=0;
+        $('#wrap span.btn').click(function () {
+            if($(this).index()===2){
+                
+                index--;
+                if (index===-1){
+                    index=7;
+                }
+                $('#wrap ul li').eq(index).addClass('show').siblings().removeClass('show');
+                $('#wrap ol li').eq(index).addClass('on').siblings().removeClass('on');
+            }
+
+            else if ($(this).index()===3) {
+                
+                index++;
+                if (index===8){
+                    index=0;
+                }
+                $('#wrap ul li').eq(index).addClass('show').siblings().removeClass('show');
+                $('#wrap ol li').eq(index).addClass('on').siblings().removeClass('on');
+            }
+            // body...
+        })
+        $('#wrap ol li').mouseover(function(){
+            var index=$(this).index()
+            $('#wrap ul li').eq(index).addClass('show').siblings().removeClass('show');
+            $('#wrap ol li').eq(index).addClass('on').siblings().removeClass('on');
+        })
+
+        setInterval(function(){
+            index++;
+            if (index===8) {
+                index=0;
+            }
+                $('#wrap ul li').eq(index).addClass('show').siblings().removeClass('show');
+                $('#wrap ol li').eq(index).addClass('on').siblings().removeClass('on');
+
+        },3000);
+
+    </script>
+
+
+            </div> <!-- header-content -->
+
+        </header> <!-- header -->
+
+
+    </section> <!-- end s-pageheader -->
+
+
+    <!-- s-content
+    ================================================== -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section class="s-content">
+    	<h1 align="center">热门推荐</h1>
+        
+        <div class="row masonry-wrap">
+            <div class="masonry">
+
+                <div class="grid-sizer"></div>
+
+                <article class="masonry__brick entry format-standard" data-aos=""  th:each="novellist:${list}">
+                        
+                    <div class="entry__thumb">
+                        <a href="reading.html" class="entry__thumb-link">
+                            <img th:src="${novellist.covers}" alt="">
+                        </a>
+                    </div>
+    
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <h1 class="entry__title"><a href="reading.html" th:text="${novellist.nname}">${novellist.nnmae}</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p th:text="${novellist.brief}">
+                                <font color="black">${novellist.brief}</font>
+                            </p>
+                    </div>
+    </div>
+                </article> <!-- end article -->
+            </div> <!-- end masonry -->
+        </div> <!-- end masonry-wrap -->
+
+        <div class="row">
+            <div class="col-full">
+            </div>
+        </div>
+
+    </section> <!-- s-content -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="/static/js/jquery-3.2.1.min.js"></script>
+    <script src="/static/js/plugins.js"></script>
+    <script src="/static/js/main.js"></script>
+
+</body>
+
+</html>

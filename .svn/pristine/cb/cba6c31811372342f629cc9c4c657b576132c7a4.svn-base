@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.noveldetailsMapper" >
+  <resultMap id="BaseResultMap" type="com.Model.noveldetails" >
+    <id column="Chapter" property="chapter" jdbcType="VARCHAR" />
+    <id column="Content" property="content" jdbcType="LONGVARCHAR" />
+     <id column="NID" property="nid" jdbcType="LONGVARCHAR"/>
+  </resultMap>
+  
+     <select id="getAllnovels" resultMap="BaseResultMap" parameterType="com.Model.noveldetails" >
+ 
+		select * from noveldetails
+	</select>
+	
+	
+	<select id="getChapters" resultMap="BaseResultMap" parameterType="com.Model.noveldetails" >
+ 
+		select chapter, nid from noveldetails where NID=#{nid}
+	</select>
+  
+  <select id="getText" resultMap="BaseResultMap" parameterType="com.Model.noveldetails" >
+ 
+		select content from noveldetails where NID=#{nid} and Chapter=#{chapter}
+	</select>
+   <sql id="Base_Column_List" >
+    NID, Chapter
+  </sql>
+  <sql id="Blob_Column_List" >
+    Content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.Model.noveldetails" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from noveldetails
+    where NID = #{nid,jdbcType=INTEGER}
+      and Chapter = #{chapter,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.Model.noveldetails" >
+    delete from noveldetails
+    where NID = #{nid,jdbcType=INTEGER}
+      and Chapter = #{chapter,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.Model.noveldetails" >
+    insert into noveldetails (NID, Chapter, Content
+      )
+    values (#{nid,jdbcType=INTEGER}, #{chapter,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.Model.noveldetails" >
+    insert into noveldetails
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="nid != null" >
+        NID,
+      </if>
+      <if test="chapter != null" >
+        Chapter,
+      </if>
+      <if test="content != null" >
+        Content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="nid != null" >
+        #{nid,jdbcType=INTEGER},
+      </if>
+      <if test="chapter != null" >
+        #{chapter,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Model.noveldetails" >
+    update noveldetails
+    <set >
+      <if test="content != null" >
+        Content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where NID = #{nid,jdbcType=INTEGER}
+      and Chapter = #{chapter,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.Model.noveldetails" >
+    update noveldetails
+    set Content = #{content,jdbcType=LONGVARCHAR}
+    where NID = #{nid,jdbcType=INTEGER}
+      and Chapter = #{chapter,jdbcType=VARCHAR}
+  </update>
+
+</mapper>

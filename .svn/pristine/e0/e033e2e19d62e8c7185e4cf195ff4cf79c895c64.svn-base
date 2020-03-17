@@ -1,0 +1,24 @@
+package com.Dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.Model.novellist;
+@Mapper
+public interface novellistMapper {
+
+	 int deleteByPrimaryKey(Integer nid);
+
+	    int insert(novellist record);
+
+	    int insertSelective(novellist record);
+
+	    novellist selectByPrimaryKey(Integer nid);
+
+	    int updateByPrimaryKeySelective(novellist record);
+
+	    int updateByPrimaryKey(novellist record);
+	    
+	List<novellist>Novellists();
+}

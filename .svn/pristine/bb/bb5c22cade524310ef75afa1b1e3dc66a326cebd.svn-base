@@ -1,0 +1,41 @@
+package com.Service.impl;
+
+import com.Dao.noveldetailsMapper;
+import com.Model.noveldetails;
+import com.Service.ReadService;
+
+import java.util.List;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+@Service
+public class ReadServiceimpl implements ReadService {
+
+	@Autowired
+	noveldetailsMapper noveldetailsmapper;
+
+	@Override
+	public List<noveldetails> getAllnovels() {
+		List<noveldetails> list=noveldetailsmapper.getAllnovels();
+		return list;
+		
+	}
+	
+	public List<noveldetails> getChapters(Integer nid)
+	{
+		List<noveldetails> list=noveldetailsmapper.getChapters(nid);
+		return list;
+		
+		
+	}
+
+	@Override
+	public List<noveldetails> getText(Integer nid,String chapter) {
+		
+		List<noveldetails> list=noveldetailsmapper.getText(nid,chapter);
+		return list;
+	}
+
+	
+}

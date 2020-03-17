@@ -1,0 +1,122 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+  <meta name="author" content="GeeksLabs">
+  <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+  <link href="images/bg.jpg" rel="background-repeat">
+  <title>注册新用户</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <!-- bootstrap theme -->
+  <link href="/static/css/bootstrap-theme.css" rel="stylesheet">
+  <!--external css-->
+  <!-- font icon -->
+  <link href="/static/css/elegant-icons-style.css" rel="stylesheet">
+  <link href="/static/css/font-awesome.css" rel="stylesheet">
+  <!-- Custom styles -->
+  <link href="/static/css/style.css" rel="stylesheet">
+  <link href="/static/css/style-responsive.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- =======================================================
+      Theme Name: NiceAdmin
+      Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+      Author: BootstrapMade
+      Author URL: https://bootstrapmade.com
+    ======================================================= -->
+</head>
+
+<body class="login-img3-body" background-repeat="images/bg.jpg">
+  
+  <div class="container">
+
+    <form class="login-form" >
+      <div class="login-wrap">
+        <p class="login-img"><i class="icon_lock_alt"></i></p>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="icon_profile"></i></span>
+          <input class="form-control" autofocus="" type="text" placeholder="昵称" name="uid">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+          <input class="form-control" type="password" placeholder="密码" name="pwd">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+          <input class="form-control" type="password" placeholder="确认密码" name="cpwd">
+        </div>
+		<tr>
+			<td class="td_left">
+			<label for="sex">性别</label>
+    		</td>
+    		<td class="td_right gender">
+    			<input type="radio" id="sex" name="sex" value="男" checked> 男
+    			<input type="radio" name="sex" value="女"> 女
+    		</td>
+    	</tr>
+        <a class="btn btn-info btn-lg btn-block" type="button"  id="btnregister"  style="color:white"><font color="white">注册</font></a>
+      </div>
+    </form>
+    <div class="text-right">
+      <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
+          -->
+        </div>
+    </div>
+  </div>
+</body>
+
+<script type= "text/javascript" src= "https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script >
+<script type="text/javascript">
+$(document).ready(function(){
+      $("#btnregister").click(function(){
+            var json = {  
+                    'uid':$(':input[name=uid]').val(),  
+                'pwd':$(':input[name=pwd]').val(),
+                'cpwd':$(':input[name=cpwd]').val()
+                };
+            var route = window.location.href;
+                var postdata = JSON.stringify(json);//json对象转换json字符串
+              alert(postdata);
+                $.ajax({  
+                type : 'POST',  
+                contentType : 'application/json;charset=UTF-8',//注意类型  
+                processData : false,  
+                url : '/Registe/userRegiste',  
+                dataType : 'json',  
+                data : postdata,  
+                success : function(data) {  
+                    alert("注册成功");
+                    window.location.href="/Login/user"
+                   
+                },  
+                error : function(err) {  
+                    console.log(err.responseText);
+                    alert("注册失败"); 
+                    window.location.reload();
+                }  
+              }); 
+      });
+    });
+</script>
+</html>
+    <script type="text/javascript">
+        function SuccessItem() {
+             var url = '@Url.Action("Blank", "Manage")';
+             location.href = url;
+        }
+        function back() {
+            window.location.href="index";
+        }
+    </script>

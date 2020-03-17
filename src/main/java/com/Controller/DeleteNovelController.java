@@ -15,10 +15,6 @@ public class DeleteNovelController {
     * alreadydown是删除成功界面
     *
     */
-   @GetMapping("/downshelf")
-    public String deleteByNName (){
-       return "downshelf";
-   }
    @PostMapping("/downshelf")
    @ResponseBody
     public String deleteByPrimaryKey(@RequestParam (value = "nid")Integer nid){
@@ -28,7 +24,7 @@ public class DeleteNovelController {
    /*
    删除小说章节
     */
-   @GetMapping("/delcontent")
+   @RequestMapping("/delcontent")
     public String deleteContent(){
        return "/delcontent";
    }

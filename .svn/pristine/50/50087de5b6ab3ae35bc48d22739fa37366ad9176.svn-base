@@ -1,0 +1,10 @@
+package com.Service;
+import com.Model.*;
+
+public interface BookSaveService {
+    int save(novellist book);
+    /**
+     * 保存章节
+     */
+    int saveIndexAndContent(noveldetails noveldetails);
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>排行榜</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/vendor.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+	<link rel="stylesheet" href="/static/css/rank.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="/static/js/modernizr.js"></script>
+    <script src="/static/js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+    <!-- pageheader
+    ================================================== -->
+    <div class="s-pageheader">
+
+        <header class="header">
+            <div class="header__content row">
+
+                <div class="header__logo">
+                    <a class="logo" href="index.html">
+                        <img src="/static/images/男人的书屋.png" alt="Homepage">
+                    </a>
+                </div> <!-- end header__logo -->
+
+
+
+                <a class="header__search-trigger" href="#0"></a>
+
+                <div class="header__search">
+
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">Search for:</span>
+                            <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="search-submit" value="Search">
+                    </form>
+        
+                    <a href="#0" title="Close Search" class="header__overlay-close">Close</a>
+
+                </div>  <!-- end header__search -->
+
+
+                 <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
+
+                <nav class="header__nav-wrap">
+
+                    <h2 class="header__nav-heading h6">Site Navigation</h2>
+
+                    <ul class="header__nav">
+                        <li><a href="index.html" title="">主页</a></li>
+						<li><a href="about.html" title="">全部作品</a></li>
+                        <li class="has-children" >
+                            <a href="#0" title="">作品分类</a>
+                            <ul class="sub-menu">
+                            <li><a href="category.html">玄幻</a></li>
+                            <li><a href="category.html">悬疑</a></li>
+                            <li><a href="category.html">都市</a></li>
+                            <li><a href="category.html">爱情</a></li>
+                            <li><a href="category.html">科幻</a></li>
+                            <li><a href="category.html">历史</a></li>
+                            </ul>
+                        </li>
+                        <li class="current">
+                            <a href="#0" title="">排行榜</a>                            
+                        </li>
+                    </ul> <!-- end header__nav -->
+
+                    <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
+
+                </nav> <!-- end header__nav-wrap -->
+
+            </div> <!-- header-content -->
+        </header> <!-- header -->
+
+    </div> <!-- end s-pageheader -->
+
+
+    <!-- s-content
+    ================================================== -->
+    <section class="s-content s-content--narrow s-content--no-padding-head">
+
+        <article class="row format-gallery">
+			<div class="comments-warp">
+<div class="s-content__header col-full">
+            <div class="panel-wrap catalog" id="j_catalog" style="display: block;">
+    <a class="iconfont close-panel" href="javascript:"></a>
+    <div class="panel-box">
+
+        <!-- start 目录书签切换容器-->
+        <div id="j_catalogTabWrap">
+            <!-- start 目录列表 -->
+            <div class="panel-list-wrap catalog-scroll-wrap" id="j_catalogListWrap" style="max-height: 403px;"><div class="catalog-list-wrap">
+    <div class="volume-list" style="display: block;">
+       <div class="rank-box box-center cf">
+       <div class="rank-nav-list fl">
+    <ul>
+        <li><a href="/rank"><em class="iconfont">
+            </em>全部榜单</a></li>
+        <li>
+            <a href="/rank/hotsales"><em class="iconfont"></em>点击榜</a>
+        </li>
+        <li class="act">
+            <a href="/rank/xyyuepiao"><em class="iconfont"></em>收藏榜</a>
+        </li>
+        
+    </ul>
+</div>
+		<div class="rank-body">
+                
+                <div class="rank-view-list" id="rank-view-list">
+                    <div class="book-img-text">
+                        <ul>                 
+                            <li data-rid="1" th:each="novellist:${list}">
+
+                                <div class="book-img-box">
+                                    <a href="" target="_blank" data-eid="" data-bid=""><img  th:src="${novellist.covers}"></a>
+                                </div>
+                                <div class="book-mid-info">
+                                    <h4><a th:text="${novellist.nname}"  target="_blank" data-eid="" data-bid="" ><font color="black">${novellist.nname}<font></a></h4>
+                                    <p class="author">
+                                        <img src=""><a  th:text="${novellist.author}" class="name default" href="javascript:" target="_blank" data-eid="qd_C41"><font color="black">${novellist.author}</a><em>|</em><a href="" target="_blank" data-eid=""><font color="black">仙侠奇缘</a><em>|</em><span><font color="black">连载中</span>
+                                    </p>
+                                    <p class="intro" th:text="${novellist.brief}">
+                                        ${novellist.brief}
+                                    </p>
+                                    
+                                    <p class="update"><a href="" target="_blank"  data-cid="">最新更新 611、同病相怜</a><em>·</em><span>1小时前</span>
+                                    
+                                    </p>
+                                </div>
+                                <div class="book-right-info">
+                                    <p class="btn">
+                                        <a class="pink-btn" href="" target="_blank" data-eid="" data-bid="">书籍详情</a>
+                                        <a class="border-btn add-book" href="javascript:" data-eid="" data-bid="" data-bookid="">加入书架</a>
+                                    </p>
+                                </div>
+                            </li>    
+                        </ul>
+                    </div>                    
+                </div>
+                
+            </div>
+            </div>
+            
+    </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+            <!-- end 目录列表 -->
+            
+        </div>
+   </div>
+
+
+ </article>
+</section>
+</body>
+
+</html>

@@ -41,6 +41,7 @@ public class mindex {
 		 return "mindex";
 		
 	}
+	
 	@ResponseBody
 	@PostMapping("/userRegiste")
 	public boolean Registe1(@RequestBody user user) {

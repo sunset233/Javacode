@@ -1,0 +1,26 @@
+package com.Service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.Dao.userMapper;
+import com.Model.user;
+import com.Service.Registe;
+@Service
+public class RegisteService implements Registe {
+@Autowired
+userMapper userMapper;
+
+@Override
+public Boolean registe(String uid, String pwd) {
+	user temp = userMapper.selectByPrimaryKey(uid);
+	if (temp != null) {
+		return false;
+	}
+	user user = new user();
+	user.setUid(uid);
+	user.setPwd(pwd);
+	return userMapper.insert(user) > 0;
+	}
+
+}

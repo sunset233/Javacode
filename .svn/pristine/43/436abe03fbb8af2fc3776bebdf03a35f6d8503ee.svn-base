@@ -1,0 +1,875 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>男人的书屋</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/vendor.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+    <!-- pageheader
+    ================================================== -->
+    <section class="s-pageheader s-pageheader--home">
+        <header class="header">
+            <div class="header__content row">
+
+                <div class="header__logo">
+                    <a class="logo" href="index.html">
+                        <img src="/static/images/男人的书屋.png" alt="Homepage">
+                    </a>
+                </div> <!-- end header__logo -->
+
+                <ul class="header__social">
+                    <li>
+                         <li><a href="http://localhost:8083/Login/user" title="" >登录</a></li>       <!--实现-->           
+						 <li><a href="#0" title="">/</a></li>
+						 <li><a href="http://localhost:8083/Registe/user" title="">注册</a></li>    <!--实现-->
+                    </li>
+                    <li>
+                        
+                    </li>
+                    
+                </ul> <!-- end header__social -->
+
+
+                <a class="header__search-trigger" href="#0"></a>
+
+                <div class="header__search">
+
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">搜索:</span>
+                            <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="search-submit" value="Search">
+                    </form>
+        
+                    <a href="#0" title="Close Search" class="header__overlay-close">Close</a>
+
+                </div>  <!-- end header__search -->
+
+
+                <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
+
+                <nav class="header__nav-wrap">
+
+                    <h2 class="header__nav-heading h6">Site Navigation</h2>
+
+                    <ul class="header__nav">
+                        <li class="current"><a href="/mainpage" title="">主页</a></li>
+						<li><a href="/Novellist" title="">全部作品</a></li>
+                        <li class="has-children">
+                            <a href="#0" title="">作品分类</a>
+                            <ul class="sub-menu">
+                            <li><a href="category.html">玄幻</a></li>
+                            <li><a href="category.html">悬疑</a></li>
+                            <li><a href="category.html">都市</a></li>
+                            <li><a href="category.html">爱情</a></li>
+                            <li><a href="category.html">科幻</a></li>
+                            <li><a href="category.html">历史</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#0" title="">排行榜</a>
+                        </li>
+                    </ul> <!-- end header__nav -->
+
+                    <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
+
+                </nav> <!-- end header__nav-wrap -->
+
+            </div> <!-- header-content -->
+        </header> <!-- header -->
+
+
+        <div class="pageheader-content row">
+            <div class="col-full">
+
+                <div class="featured">
+
+                 <div align="center">
+    <table border="1">
+  
+  <!-- 
+        <tr>
+            <th>图书编号</th>
+            <th>图书名称</th>
+   			 <th>图书种类</th>
+   			  <th>作者</th>
+   			   <th>阅读次数</th>
+   			    <th>图书简介</th>
+        </tr> -->
+        <tr th:each="noveldetails:${pageInfo.list}">
+     
+          <a  th:text="${noveldetails.content}" >${noveldetails.content}</a><br>
+           
+           <!--  <td th:text="${novellist.nid}" onclick="location.href='@{/chapter?nid={nid}(nid=${novellist.nid})};'" ></td>
+            <td th:text="${novellist.nname}" onclick="location.href='/content?nid=111&chapter=qeq';"></td>
+            <td th:text="${novellist.nkind}" ></td>
+             <td th:text="${novellist.author}"></td>
+             <td th:text="${novellist.amount}"></td>
+             <td th:text="${novellist.brief}"></td>
+             -->
+        </tr>
+        <!--  <script type="text/javascript" th:inline="javascript">
+            function query() {
+                $.ajax({
+
+                    //几个参数需要注意一下
+                    type: "GET",//方法类型
+                    // dataType: "content",//预期服务器返回的数据类型
+                    url: "/content?nid=111&chapter=qeq",
+
+                    
+                    success: function (data) {
+                        //   console.log(result);//打印服务端返回的数据(调试用)
+                      alert("success");
+              
+
+                    },
+
+                    error: function () {
+                        alert("信息错误,请重新输入")
+                        window.location.reload();
+                    }
+                });
+            }
+        </script> -->
+    </table>
+    <p>当前 <span th:text="${pageInfo.pageNum}"></span> 页,总 <span th:text="${pageInfo.pages}"></span> 页,共 <span th:text="${pageInfo.total}"></span> 条记录</p>
+    <a th:href="@{/Novellist}">首页</a>
+    <a th:href="@{/Novellist(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}">上一页</a>
+    <a th:href="@{/Novellist(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a>
+    
+    <a th:href="@{/Novellist(pageNum=${pageInfo.pages})}">尾页</a>
+
+</div>
+
+                                <div class="entry__info">
+                                    <a href="#0" class="entry__profile-pic">
+                                        <img class="avatar" src="images/avatars/user-03.jpg" alt="">
+                                    </a>
+
+                                    <ul class="entry__meta">
+                                        <li><a href="#0">John Doe</a></li>
+                                        <li>December 21, 2017</li>
+                                    </ul>
+                                </div>
+                            </div> <!-- end entry__content -->-->
+
+                        </div> <!-- end entry -->
+
+                    </div> <!-- end featured__small -->
+                </div> <!-- end featured -->
+
+            </div> <!-- end col-full -->
+        </div> <!-- end pageheader-content row -->
+
+    </section> <!-- end s-pageheader -->
+
+
+    <!-- s-content
+    ================================================== -->
+    <section class="s-content">
+        
+        <div class="row masonry-wrap">
+            <div class="masonry">
+
+                <div class="grid-sizer"></div>
+
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+                        
+                    <div class="entry__thumb">
+                        <a href="reading.html" class="entry__thumb-link">
+                            <img src="/static/images/thumbs/masonry/剑臣-400.jpg" 
+                                    srcset="/static/images/thumbs/masonry/剑臣-400.jpg 1x, /static/images/thumbs/masonry/剑臣-800.jpg 2x" alt="">
+                        </a>
+                    </div>
+    
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="reading.html">December 15, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a href="reading.html">Just a Standard Format Post.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                这里没有炫丽的魔法和斗气;没有莫测的道法和真气;这里只有剑——与生俱来的剑!这里的修炼之路只有一条,就是剑!剑分属性:风、火、水、雷、土、木六种,剑者称:剑臣、剑士、剑灵、剑师、剑宗、剑魂、剑皇、剑圣、剑神九谓;每谓有菱形槽孔一节。剑臣一节,剑士两节,剑灵三节,以此类推。这些本是亘古不变的自然现象,但自叶舟出现的那一刻开始,一切都在发生改变!这是一个不一样的世界,这是一个剑的世界!
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Design</a> 
+                                <a href="category.html">Photography</a>
+                            </span>
+                        </div>
+                    </div>
+    
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-quote" data-aos="fade-up">
+                        
+                    <!--<div class="entry__thumb">
+                        <blockquote>
+                                <p>Good design is making something intelligible and memorable. Great design is making something memorable and meaningful.</p>
+    
+                                <cite>Dieter Rams</cite>
+                        </blockquote>
+                    </div> -->  
+    
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+                        
+                    <div class="entry__thumb">
+                        <a href="single-standard.html" class="entry__thumb-link">
+                            <img src="/static/images/thumbs/masonry/人间失格-400.jpg" 
+                                    srcset="/static/images/thumbs/masonry/人间失格-400.jpg 1x, /static/images/thumbs/masonry/人间失格-800.jpg 2x" alt="">
+                        </a>
+                    </div>
+    
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="reading.html">December 15, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a href="reading.html">10 Interesting Facts About Caffeine.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                《人间失格》（又名《丧失为人的资格》）日本小说家太宰治创作的中篇小说，发表于1948年，是一部半自传体的小说。《人间失格》以“我”看到叶藏的三张照片后的感想开头，中间是叶藏的三篇手记，而三篇手记与照片对应，分别介绍了叶藏幼年、青年和壮年时代的经历，描述了叶藏是如何一步一步走向丧失为人... 
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Health</a>
+                            </span>
+                        </div>
+                    </div>
+    
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                    <div class="entry__thumb">
+                        <a href="single-standard.html" class="entry__thumb-link">
+                            <img src="/static/images/thumbs/masonry/秦时明月-400.jpg" 
+                                    srcset="/static/images/thumbs/masonry/秦时明月-400.jpg 1x, /static/images/thumbs/masonry/秦时明月-800.jpg 2x" alt="">
+                        </a>
+                    </div>
+    
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="reading.html">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a href="reading.html">No Sugar Oatmeal Cookies.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                故事背景取自秦灭六国到西楚霸王项羽灭秦这段英雄辈出的历史时期，时间跨度约30年，是一部以武侠为主题的全民型动画。各种历史事件和民间传说纷呈迭起，仗剑游走江湖的名士侠隐和对现代中国产生深远影响的诸子百家更是在这个合纵连横的大时代中悉数登场。
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Cooking</a>
+                                <a href="category.html">Health</a>
+                            </span>
+                        </div>
+                    </div>
+    
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                    <div class="entry__thumb">
+                        <a href="reading.html" class="entry__thumb-link">
+                            <img src="/static/images/thumbs/masonry/一只猫-400.jpg" 
+                                    srcset="/static/images/thumbs/masonry/一只猫-400.jpg 1x, /static/images/thumbs/masonry/一只猫-800.jpg 2x" alt="">
+                        </a>
+                    </div>
+    
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="reading.html">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a href="reading.html">Visiting Theme Parks Improves Your Health.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                这只猫太雷人！日本第一难吃的拉面店店长——大将猫的拉面馆爆笑开张！ 本书为日本畅销漫画。同名动画片亦在日本拍摄完成。 这是一本充满了时尚元素，饮食文化的背景，和“生活冷笑话” 吐槽的四格漫画。并附录四篇揭露一只猫如何走上“拉面事业”的特别篇。 
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="#">Health</a> 
+                                <a href="#">Lifestyle</a>
+                            </span>
+                        </div>
+                    </div>
+    
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-video" data-aos="fade-up">
+                        
+                    <div class="entry__thumb video-image">
+                        <a href="https://player.vimeo.com/video/117310401?color=01aef0&title=0&byline=0&portrait=0" data-lity>
+                            <img src="/static/images/thumbs/masonry/理智与热情-400.jpg" 
+                                    srcset="/static/images/thumbs/masonry/理智与热情-400.jpg 1x, images/thumbs/masonry/理智与热情-800.jpg 2x" alt="">
+                        </a>
+                    </div>
+    
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="single-video.html">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a href="single-video.html">Key Benefits Of Family Photography.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                你们的理性与热情,是你们航行中的灵魂的舵与帆。 假如你们的舵或帆被损坏,你们就只能在海上颠沛流离,或滞留海上。 理性独自弄权,是一种压制的力量;热...
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Family</a> 
+                                <a href="category.html">Photography</a>
+                            </span>
+                        </div>
+                    </div>
+    
+                </article> <!-- end article -->
+
+
+                <article class="masonry__brick entry format-gallery" data-aos="fade-up">
+                        
+                    <div class="entry__thumb slider">
+                        <div class="slider__slides">
+                            <div class="slider__slide">
+                                <img src="/static/images/thumbs/masonry/gallery/影子-1-400.jpg" 
+                                        srcset="/static/images/thumbs/masonry/gallery/影子-1-400.jpg 1x, /static/images/thumbs/masonry/gallery/影子-1-800.jpg 2x" alt=""> 
+                            </div>
+                            <div class="slider__slide">
+                                <img src="/static/images/thumbs/masonry/gallery/仙风-2-400.jpg" 
+                                        srcset="/static/images/thumbs/masonry/gallery/仙风-2-400.jpg 1x, /static/images/thumbs/masonry/gallery/仙风-2-800.jpg 2x" alt=""> 
+                            </div>
+                            <div class="slider__slide">
+                                <img src="/static/images/thumbs/masonry/gallery/逍遥武尊-3-400.jpg" 
+                                        srcset="/static/images/thumbs/masonry/gallery/逍遥武尊-3-400.jpg 1x, /static/images/thumbs/masonry/gallery/逍遥武尊-3-800.jpg 2x" alt="">  
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="single-gallery.html">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a href="single-gallery.html">Workspace Design Trends and Ideas.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                圣武大陆，武道昌盛。其巅峰处为圣者。时光如浪，淘尽英雄。唯圣者之名，不灭永存。宛如夏夜，万籁俱寂，一颗颗星闪烁，点亮夜空。小小裂岩城内，少年楚天的人生被点亮。自此，他迈向巅峰。武道巅峰是为圣，圣者如星吾独尊。
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Work</a> 
+                                <a href="category.html">Management</a>
+                            </span>
+                        </div>
+                    </div>
+    
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-audio" data-aos="fade-up">
+
+                    <div class="entry__thumb">
+                        <a href="single-audio.html" class="entry__thumb-link">
+                            <img src="/static/images/thumbs/masonry/将军令-400.jpg" 
+                                    srcset="/static/images/thumbs/masonry/将军令-400.jpg 1x, /static/images/thumbs/masonry/将军令-800.jpg 2x" alt="">
+                        </a>
+                        <div class="audio-wrap">
+                            <audio id="player" src="media/AirReview-Landmarks-02-ChasingCorporate.mp3" width="100%" height="42" controls="controls"></audio>
+                        </div>
+                    </div>
+
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="single-audio.html">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a href="single-audio.html">What Your Music Preference Says About You and Your Personality.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                千古华夏，多少人杰埋骨？老子西出函谷关，一卷道德经古今共尊。孔圣乘车游六国，半部论语治天下。千古奇人鬼谷子，百家称祖。杀神白起，煌煌杀机六国畏惧。霸王项羽，力拔山兮气盖世。封狼居胥，世无王庭，壮哉霍去病。远古妖庭，十二祖巫，洪荒大神纷出，席卷天下。
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Music</a> 
+                                <a href="category.html">Lifestyle</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-link" data-aos="fade-up">
+                    
+                    <div class="entry__thumb">
+                        <div class="link-wrap">
+                            <p>The Only Resource You Will Need To Start a Blog Using WordPress.</p>
+                            <cite>
+                                <a target="_blank" href="https://colorlib.com/">https://colorlib.com</a>
+                            </cite>
+                        </div>
+                    </div>
+                    
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                    <div class="entry__thumb">
+                        <a href="reading.html" class="entry__thumb-link">
+                            <img src="/static/images/thumbs/masonry/都市修仙-400.jpg" 
+                                    srcset="/static/images/thumbs/masonry/都市修仙-400.jpg 1x, /static/images/thumbs/masonry/都市修仙-800.jpg 2x" alt="">
+                        </a>
+                    </div>
+
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="reading.html">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a href="reading.html">Create Meaningful Family Moments.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                大四毕业的陈小哲，看着自己身边会说话的白猫，感觉自己好像获得了大机缘啊！都市修仙，闲人生活。陈小哲觉得自己可能这辈子就是一个咸鱼，就算成为了修仙者也是一个咸鱼。本书偏日常。
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Family</a>
+                                <a href="category.html">Relationship</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                    <div class="entry__thumb">
+                        <a href="reading.html" class="entry__thumb-link">
+                            <img src="/static/images/thumbs/masonry/帝都夜生活-400.jpg" 
+                                    srcset="/static/images/thumbs/masonry/帝都夜生活-400.jpg 1x, /static/images/thumbs/masonry/帝都夜生活-800.jpg 2x" alt="">
+                        </a>
+                    </div>
+
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="reading.html">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a href="reading.html">Throwback To The Good Old Days.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                人在贫穷的时候，呼吸都是错的。叮，恭喜宿主，你的每一次呼吸都会获得一定的金钱。叮，你吃到一只味道爆炸的小龙虾，获得一张辣味消费卡。叮，今天你的睡眠质量非常高，获得精力+20%的一日buff。不一样的神豪系统，生活中的一切都会带来惊喜。教练，我要学飙车！
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Lifestyle</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                    <div class="entry__thumb">
+                        <a href="reading.html" class="entry__thumb-link">
+                            <img src="/static/images/thumbs/masonry/剑傲九霄-400.jpg" 
+                                    srcset="/static/images/thumbs/masonry/剑傲九霄-400.jpg 1x, /static/images/thumbs/masonry/剑傲九霄-800.jpg 2x" alt="">
+                        </a>
+                    </div>
+
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="reading.html">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a href="reading.html">Just Another  Standard Format Post.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                有神秘大神的陪伴，有空间的扶持，在末世中带着大家过着打打怪的悠然种田生活时却发现地球只是沧海一粟，原来修真才是正途；笑看苍穹，在修真界去翻手为云；傲视群雄，去仙界覆手为雨；问鼎九霄，谁才是最后的赢家！ 
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Design</a> 
+                                <a href="category.html">Photography</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                    <div class="entry__thumb">
+                        <a href="reading.html" class="entry__thumb-link">
+                            <img src="/static/images/thumbs/masonry/无可奉告-400.jpg" 
+                                    srcset="/static/images/thumbs/masonry/无可奉告-400.jpg 1x, /static/images/thumbs/masonry/无可奉告-800.jpg 2x" alt="">
+                        </a>
+                    </div>
+
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="reading.html">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a href="reading.html">Planning Your First Trip to Sydney.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                谁的生活还不是一言难尽呢？我羡慕你，你嫉妒她的，她指不定还觉得我过的挺不错呢，所以有什么可比较的，大家好好本分的做自己不好吗？你说呢？ 
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Travel</a> 
+                                <a href="category.html">Vacation</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </article> <!-- end article -->
+
+            </div> <!-- end masonry -->
+        </div> <!-- end masonry-wrap -->
+
+        <div class="row">
+            <div class="col-full">
+                <nav class="pgn">
+                    <ul>
+                        <li><a class="pgn__prev" href="#0">Prev</a></li>
+                        <li><a class="pgn__num" href="#0">1</a></li>
+                        <li><span class="pgn__num current">2</span></li>
+                        <li><a class="pgn__num" href="#0">3</a></li>
+                        <li><a class="pgn__num" href="#0">4</a></li>
+                        <li><a class="pgn__num" href="#0">5</a></li>
+                        <li><span class="pgn__num dots">…</span></li>
+                        <li><a class="pgn__num" href="#0">8</a></li>
+                        <li><a class="pgn__next" href="#0">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </section> <!-- s-content -->
+
+
+    <!-- s-extra
+    ================================================== -->
+    <section class="s-extra">
+
+        <div class="row top">
+
+            <div class="col-eight md-six tab-full popular">
+                <h3>Popular Posts</h3>
+
+                <div class="block-1-2 block-m-full popular__posts">
+                    <article class="col-block popular__post">
+                        <a href="#0" class="popular__thumb">
+                            <img src="/static/images/thumbs/small/wheel-150.jpg" alt="">
+                        </a>
+                        <h5><a href="#0">Visiting Theme Parks Improves Your Health.</a></h5>
+                        <section class="popular__meta">
+                                <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">Dec 19, 2017</time></span>
+                        </section>
+                    </article>
+                    <article class="col-block popular__post">
+                        <a href="#0" class="popular__thumb">
+                            <img src="/static/images/thumbs/small/shutterbug-150.jpg" alt="">
+                        </a>
+                        <h5><a href="#0">Key Benefits Of Family Photography.</a></h5>
+                        <section class="popular__meta">
+                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-18">Dec 18, 2017</time></span>
+                        </section>
+                    </article>
+                    <article class="col-block popular__post">
+                        <a href="#0" class="popular__thumb">
+                            <img src="/static/images/thumbs/small/cookies-150.jpg" alt="">
+                        </a>
+                        <h5><a href="#0">Absolutely No Sugar Oatmeal Cookies.</a></h5>
+                        <section class="popular__meta">
+                                <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-16">Dec 16, 2017</time></span>
+                        </section>
+                    </article>
+                    <article class="col-block popular__post">
+                        <a href="#0" class="popular__thumb">
+                            <img src="/static/images/thumbs/small/beetle-150.jpg" alt="">
+                        </a>
+                        <h5><a href="#0">Throwback To The Good Old Days.</a></h5>
+                        <section class="popular__meta">
+                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-16">Dec 16, 2017</time></span>
+                        </section>
+                    </article>
+                    <article class="col-block popular__post">
+                        <a href="#0" class="popular__thumb">
+                            <img src="/static/images/thumbs/small/tulips-150.jpg" alt="">
+                        </a>
+                        <h5><a href="#0">10 Interesting Facts About Caffeine.</a></h5>
+                        <section class="popular__meta">
+                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-14">Dec 14, 2017</time></span>
+                        </section>
+                    </article>
+                    <article class="col-block popular__post">
+                        <a href="#0" class="popular__thumb">
+                            <img src="/static/images/thumbs/small/salad-150.jpg" alt="">
+                        </a>
+                        <h5><a href="#0">Healthy Mediterranean Salad Recipes</a></h5>
+                        <section class="popular__meta">
+                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-12">Dec 12, 2017</time></span>
+                        </section>
+                    </article>
+                </div> <!-- end popular_posts -->
+            </div> <!-- end popular -->
+            
+            <div class="col-four md-six tab-full about">
+                <h3>About Philosophy</h3>
+
+                <p>
+                Donec sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat. Pellentesque in ipsum id orci porta dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
+                </p>
+
+                <ul class="about__social">
+                    <li>
+                        <a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                    </li>
+                </ul> <!-- end header__social -->
+            </div> <!-- end about -->
+
+        </div> <!-- end row -->
+
+        <div class="row bottom tags-wrap">
+            <div class="col-full tags">
+                <h3>Tags</h3>
+
+                <div class="tagcloud">
+                    <a href="#0">Salad</a>
+                    <a href="#0">Recipe</a>
+                    <a href="#0">Places</a>
+                    <a href="#0">Tips</a>
+                    <a href="#0">Friends</a>
+                    <a href="#0">Travel</a>
+                    <a href="#0">Exercise</a>
+                    <a href="#0">Reading</a>
+                    <a href="#0">Running</a>
+                    <a href="#0">Self-Help</a>
+                    <a href="#0">Vacation</a>
+                </div> <!-- end tagcloud -->
+            </div> <!-- end tags -->
+        </div> <!-- end tags-wrap -->
+
+    </section> <!-- end s-extra -->
+
+
+    <!-- s-footer
+    ================================================== -->
+    <footer class="s-footer">
+
+        <div class="s-footer__main">
+            <div class="row">
+                
+                <div class="col-two md-four mob-full s-footer__sitelinks">
+                        
+                    <h4>Quick Links</h4>
+
+                    <ul class="s-footer__linklist">
+                        <li><a href="#0">Home</a></li>
+                        <li><a href="#0">Blog</a></li>
+                        <li><a href="#0">Styles</a></li>
+                        <li><a href="#0">About</a></li>
+                        <li><a href="#0">Contact</a></li>
+                        <li><a href="#0">Privacy Policy</a></li>
+                    </ul>
+
+                </div> <!-- end s-footer__sitelinks -->
+
+                <div class="col-two md-four mob-full s-footer__archives">
+                        
+                    <h4>Archives</h4>
+
+                    <ul class="s-footer__linklist">
+                        <li><a href="#0">January 2018</a></li>
+                        <li><a href="#0">December 2017</a></li>
+                        <li><a href="#0">November 2017</a></li>
+                        <li><a href="#0">October 2017</a></li>
+                        <li><a href="#0">September 2017</a></li>
+                        <li><a href="#0">August 2017</a></li>
+                    </ul>
+
+                </div> <!-- end s-footer__archives -->
+
+                <div class="col-two md-four mob-full s-footer__social">
+                        
+                    <h4>Social</h4>
+
+                    <ul class="s-footer__linklist">
+                        <li><a href="#0">Facebook</a></li>
+                        <li><a href="#0">Instagram</a></li>
+                        <li><a href="#0">Twitter</a></li>
+                        <li><a href="#0">Pinterest</a></li>
+                        <li><a href="#0">Google+</a></li>
+                        <li><a href="#0">LinkedIn</a></li>
+                    </ul>
+
+                </div> <!-- end s-footer__social -->
+
+                <div class="col-five md-full end s-footer__subscribe">
+                        
+                    <h4>Our Newsletter</h4>
+
+                    <p>Sit vel delectus amet officiis repudiandae est voluptatem. Tempora maxime provident nisi et fuga et enim exercitationem ipsam. Culpa consequatur occaecati.</p>
+
+                    <div class="subscribe-form">
+                        <form id="mc-form" class="group" novalidate="true">
+
+                            <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
+                
+                            <input type="submit" name="subscribe" value="Send">
+                
+                            <label for="mc-email" class="subscribe-message"></label>
+                
+                        </form>
+                    </div>
+
+                </div> <!-- end s-footer__subscribe -->
+
+            </div>
+        </div> <!-- end s-footer__main -->
+
+        <div class="s-footer__bottom">
+            <div class="row">
+                <div class="col-full">
+                    <div class="s-footer__copyright">
+                        <span>© Copyright Philosophy 2018</span> 
+                        <span>Site Template by <a href="https://colorlib.com/">Colorlib</a></span>
+                    </div>
+
+                    <div class="go-top">
+                        <a class="smoothscroll" title="Back to Top" href="#top"></a>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end s-footer__bottom -->
+
+    </footer> <!-- end s-footer -->
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+            <div class="line-scale">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+
+
+

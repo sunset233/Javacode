@@ -1,0 +1,58 @@
+package com.Controller;
+
+import com.Config.R;
+import com.Model.noveldetails;
+import com.Model.novellist;
+import com.Service.BookSaveService;
+import com.Service.impl.BookSaveServiceimpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+
+@Controller
+@RequestMapping("/save")
+public class AddNovelController {
+    @Autowired
+    private BookSaveService bookSaveService;
+    //@ApiOperation(value = "新增", notes = "新增")
+    @ResponseBody
+    @PostMapping("/insert")
+    public R insert(novellist book) {
+        if (bookSaveService.save(book) > 0) {
+            return R.ok();
+        }
+        return R.error();
+    }
+//    @ApiOperation(value = "新增章节页面", notes = "新增章节页面")
+//    @GetMapping("/index/add")
+//    String indexAdd(Long bookId, Model model) {
+//        model.addAttribute("bookId",bookId);
+//        return "books/bookIndex/add";
+//    }
+
+    /**
+     * 保存章节
+     */
+   // @ApiOperation(value = "新增章节", notes = "新增章节")
+    @ResponseBody
+    @PostMapping("/index/save")
+    public R indexAndContentSave(noveldetails noveldetails) {
+        if (bookSaveService.saveIndexAndContent(noveldetails) > 0) {
+            return R.ok();
+        }
+        return R.error();
+    }
+
+//    @GetMapping("/index")
+//    String BookIndex(Long bookId, Model model) {
+//
+//        model.addAttribute("bookId",bookId);
+//        return "books/bookIndex/bookIndex";
+//    }
+}

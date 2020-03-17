@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>用户登录页面</head>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户登录</title>
+</head>
+<body>
+
+		 <input type="button" value="刷新" id="btnlogin">  
+</body>
+</html>
+<script type= "text/javascript" src= "https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script >
+<script type="text/javascript">
+$(document).ready(function(){
+      $("#btnlogin").click(function(){
+            var json = {  
+                    'uid':$(':input[name=uid]').val(),  
+                'pwd':$(':input[name=pwd]').val() 
+                };
+            var route = window.location.href;
+                var postdata = JSON.stringify(json);//json对象转换json字符串
+                $.ajax({  
+                type : 'GET',  
+                contentType : 'application/json;charset=UTF-8',//注意类型  
+                processData : false,  
+                url : '/chapter2',  
+                dataType : 'json',  
+             	data:data,
+                success : function(data) {  
+                    alert("登录成功");
+                    window.location.href='/Login/mainpage';
+                   
+                },  
+                error : function(err) {  
+                    console.log(err.responseText);
+                    alert("登录失败"); 
+                    window.location.reload();
+                }  
+              }); 
+      });
+    });
+</script>

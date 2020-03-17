@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div align="center">
+    <table border="1">
+        <tr>
+           
+            <th>chapter</th>
+   
+        </tr>
+        <tr th:each="noveldetails:${pageInfo.list}">
+          
+            <td th:text="${noveldetails.chapter}"></td>
+          
+        </tr>
+    </table>
+    <p>当前 <span th:text="${pageInfo.pageNum}"></span> 页,总 <span th:text="${pageInfo.pages}"></span> 页,共 <span th:text="${pageInfo.total}"></span> 条记录</p>
+    <a th:href="@{/wapbook}">首页</a>
+    <a th:href="@{/wapbook(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}">上一页</a>
+    <a th:href="@{/wapbook(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a>
+    <a th:href="@{/wapbook(pageNum=${pageInfo.pages})}">尾页</a>
+</div>
+</body>
+
+
+</html>

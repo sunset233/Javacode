@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>男人的书屋</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/vendor.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link data-ignore="true" rel="shortcut icon" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.c443c.ico">
+    <link data-ignore="true" rel="Bookmark" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.c443c.ico">
+    <link rel="stylesheet" data-ignore="true" href="//qidian.gtimg.com/c/=/qd/css/lbfUI/css/icon.a578d.css,/qd/css/lbfUI/css/Drag.41d31.css,/qd/css/reset.ddecf.css,/qd/css/global.d41d8.css,/qd/css/font.1727c.css,/qd/css/footer.5bdba.css,/qd/css/qd_popup.ed72c.css,/qd/css/book_popup.18f47.css,/qd/css/vote_popup.3844d.css,/qd/icon/forum/sprite.445f4.css,/qd/css/forum/emoji.c4e81.css">
+    <link data-ignore="true" rel="stylesheet" href="//qidian.gtimg.com/qd/css/module.a841b.css">
+    <link data-ignore="true" rel="stylesheet" href="//qidian.gtimg.com/qd/css/layout.5de0f.css">
+    <link data-ignore="true" rel="stylesheet" href="//qidian.gtimg.com/qd/css/book_details.1baf2.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/qd/css/lbfUI/css/Panel.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/qd/css/lbfUI/css/LightTip.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/qd/css/lbfUI/css/Popup.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/qd/css/lbfUI/css/Drag.css">
+    <style name="lbf-overlay">.lbf-overlay { position:fixed; top:0; left:0;}</style>
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top" style="overflow:visible;">
+
+    <!-- pageheader
+    ================================================== -->
+    <section  class="s-pageheaderAllProducts">
+        <header class="header">
+            <div class="header__content row">
+
+                <div class="header__logo">
+                    <a class="logo" href="index.html">
+                        <img src="/static/images/男人的书屋.png" alt="Homepage">
+                    </a>
+                </div> <!-- end header__logo -->
+
+                
+
+
+                <a class="header__search-trigger" href="#0"></a>
+
+                <div class="header__search">
+
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">搜索:</span>
+                            <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="search-submit" value="Search">
+                    </form>
+        
+                    <a href="#0" title="Close Search" class="header__overlay-close">Close</a>
+
+                </div>  <!-- end header__search -->
+
+
+                <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
+
+                <nav class="header__nav-wrap">
+
+                    <h2 class="header__nav-heading h6">Site Navigation</h2>
+
+                    <ul class="header__nav">
+                        <li><a href="/UIndex/uuuu" title="">主页</a></li>
+						<li class="current"><a href="/UIndex/AllProducts" title="">全部作品</a></li>
+                        <li class="has-children">
+                            <a href="#0" title="">作品分类</a>
+                            <ul class="sub-menu">
+                            <li><a href="/UIndex/XuanHuan">玄幻</a></li>
+                            <li><a href="/UIndex/XuanYi">悬疑</a></li>
+                            <li><a href="/UIndex/DuShi">都市</a></li>
+                            <li><a href="/UIndex/AiQing">爱情</a></li>
+                            <li><a href="/UIndex/KeHuan">科幻</a></li>
+                            <li><a href="/UIndex/LiShi">历史</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#0" title="">我的书架</a>
+                        </li>
+                        <li><a href="style-guide.html" title="">个人信息</a></li>	
+                    </ul> <!-- end header__nav -->
+
+                    <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
+
+                </nav> <!-- end header__nav-wrap -->
+
+            </div> <!-- header-content -->
+        </header> <!-- header -->
+<div style="width: 100%;background-color:#FFF;">
+<div style="margin-left:200px;margin-right:200px">
+<div class="book-information cf" data-l1="2">
+
+    
+     <tr th:each="novellist:${novel}">
+     <div class="book-img">
+        <a class="J-getJumpUrl" id="bookImg" data-eid="qd_G09" data-bid="1010734492" data-firstchapterjumpurl="//read.qidian.com/chapter/ORlSeSgZ6E_MQzCecGvf7A2/eSlFKP1Chzg1"><img src="//bookcover.yuewen.com/qdbimg/349573/1010734492/180"></a>
+    </div>
+    
+    <div class="book-info ">
+        
+        <h1>
+            
+            <em> <a th:text="${novellist.nname}"> </a> </em>
+            <span><a class="writer"   data-eid="qd_G08" th:text="${novellist.author}"></a> 著</span>
+            
+        </h1>
+        <p class="tag"> 
+             <a  class="red"  data-eid="qd_G10" th:text="${novellist.nkind}"></a>
+               
+        </p>
+        
+        <p class="intro" th:text="${novellist.brief}"></p>
+        
+        <p><a class="red-btn J-getJumpUrl "  id="readBtn" data-eid="qd_G03" data-bid="1010734492" data-firstchapterjumpurl="//read.qidian.com/chapter/ORlSeSgZ6E_MQzCecGvf7A2/eSlFKP1Chzg1">免费试读</a>
+        
+            <a class="blue-btn add-book" id="addBookBtn" href="加入书架功能" data-eid="qd_G05" data-bookid="1010734492" data-bid="1010734492">加入书架</a>
+            
+            <a class="blue-btn" id="topVoteBtn"  data-showtype="1" data-eid="qd_G06">点赞打赏</a>
+            
+        </p>
+        
+    </div>
+    
+     
+    <div class="comment-wrap">
+        <div id="commentWrap">
+            
+            <div class="j_getData hidden" style="display: block;">
+                <p id="j_userCount"><span th:text="${novellist.amount}"></span>点击</p>
+            </div>
+        </div>
+    </div> </tr>
+    
+    
+</div>
+
+<tr th:each="noveldetails:${pageInfo.list}">
+<div class="volume-wrap"> 
+     <div class="volume">
+        <div class="cover"></div>
+          <ul class="cf"> 
+            <li th:data-rid="1" ><a th:href="@{/content(nid=${noveldetails.nid},cid=${noveldetails.cid})}"  data-eid="qd_G55" data-cid="//read.qidian.com/chapter/ORlSeSgZ6E_MQzCecGvf7A2/atYOCLHSg35Ms5iq0oQwLQ2" th:text="${noveldetails.chapter}"></a></li>
+          </ul>
+    </div> 
+</div>
+</tr>
+</div>    
+</div>
+</body>
+
+</html>

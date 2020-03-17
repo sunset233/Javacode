@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<script type= "text/javascript" src= "https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script >
+<script type="text/javascript">
+$(document).ready(function(){
+      $("#btnlogin").click(function(){
+            var json = {  
+                    'uid':$(':input[name=uid]').val(),  
+                'pwd':$(':input[name=pwd]').val(),
+                'cpwd':$(':input[name=cpwd]').val()
+                };
+            var route = window.location.href;
+                var postdata = JSON.stringify(json);//json对象转换json字符串
+              alert(postdata);
+                $.ajax({  
+                type : 'POST',  
+                contentType : 'application/json;charset=UTF-8',//注意类型  
+                processData : false,  
+                url : '/Registe/user',  
+                dataType : 'json',  
+                data : postdata,  
+                success : function(data) {  
+                    alert("注册成功");
+                    window.location.href="/Registe/mainpage"
+                   
+                },  
+                error : function(err) {  
+                    console.log(err.responseText);
+                    alert("注册失败"); 
+                    window.location.reload();
+                }  
+              }); 
+      });
+    });
+</script>
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+</head>
+<body>
+				<div class="Registe1" style="padding:0px;">
+							<form id="form1" name="myform" method="post" action="login" >
+      昵称:<input type="text" name="uid"/><br></br>
+      密码:<input type="password" name="pwd"/>
+       确认密码:<input type="password" name="cpwd"/>
+     <input type="button" value="提交" id="btnlogin"/>  
+   
+</form>
+		</div>
+</body>
+</html>

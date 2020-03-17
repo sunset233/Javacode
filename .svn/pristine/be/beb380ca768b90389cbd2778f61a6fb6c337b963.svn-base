@@ -1,0 +1,28 @@
+
+<script type="text/javascript">
+function novellist(){
+
+    var s=[];
+    $.ajax({
+        type:"get",
+        url:'/novellist',
+        data:{},
+        async: false,
+        success:function (data) {
+            
+        	s=JSON.stringify(data);
+        	
+        	 var keyList = eval(s);
+             }
+
+    });
+}
+</script>
+
+
+
+
+
+
+
+

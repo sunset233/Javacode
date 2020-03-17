@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+    <title>在线阅读管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+    <!-- CSS Libs -->
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/bootstrap-switch.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/checkbox3.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/dataTables.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/dist/lib/css/select2.min.css">
+    <!-- CSS App -->
+    <link rel="stylesheet" type="text/css" href="../static/admin/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/admin/css/themes/flat-blue.css">
+</head>
+
+<body class="flat-blue">
+    <div class="app-container">
+        <div class="row content-container">
+            <nav class="navbar navbar-default navbar-fixed-top navbar-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-expand-toggle">
+                            <i class="fa fa-bars icon"></i>
+                        </button>
+                        <ol class="breadcrumb navbar-breadcrumb">
+                            <li class="active">管理员页面</li>
+                        </ol>
+                        <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
+                            <i class="fa fa-th icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+            <div class="side-menu sidebar-inverse">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="side-menu-container">
+                       <div class="side-menu-container">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">
+                                <div class="icon fa fa-paper-plane"></div>
+                                <div class="title">尊敬的管理员欢迎您！</div>
+                            </a>
+                            <button type="button" class="navbar-expand-toggle pull-right visible-xs">
+                                <i class="fa fa-times icon"></i>
+                            </button>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href='http://localhost:8083/mindex/user'>
+                                    <span class="icon fa fa-tachometer"></span><span class="title">个人主页</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href='http://localhost:8083/mindex/user'>
+                                    <span class="icon fa fa-desktop"></span><span class="title">小说管理</span>
+                                </a>
+                                <!-- Dropdown level 1 -->
+                               
+                            </li>
+                            <li class="active">
+                                <a href='http://localhost:8083/onShelf/book'>
+                                    <span class="icon fa fa-table"></span><span class="title">小说上架</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a  href="#dropdown-form">
+                                    <span class="icon fa fa-file-text-o"></span><span class="title">业务处理</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+            </div>
+            <!-- Main Content -->
+      <section class="wrapper">
+        <div class="row">
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <div class="panel-body">
+                <div class="form">
+                  <form class="form-validate form-horizontal" id="feedback_form" method="get" action="">
+                    <div class="form-group ">
+                      <label for="cname" class="control-label col-lg-2"><span class="required">小说编号</span></label>
+                      <div class="col-lg-10">
+                        <input class="form-control" id="nid" name="nid"   />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="cemail" class="control-label col-lg-2"><span class="required">小说名称</span></label>
+                      <div class="col-lg-10">
+                        <input class="form-control " id="nname"  name="nname" required />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="cemail" class="control-label col-lg-2"><span class="required">作者</span></label>
+                      <div class="col-lg-10">
+                        <input class="form-control " id="author"  name="author" required />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="cemail" class="control-label col-lg-2"><span class="required">简介</span></label>
+                      <div class="col-lg-10">
+                        <input class="form-control " id="brief"  name="brief" required />
+                      </div>
+                    </div>
+					<div class="form-group ">
+                      <label for="cemail" class="control-label col-lg-2"><span class="required">类型</span></label>
+                      <div class="col-lg-10">
+                        <input class="form-control " id="nkind"  name="nkind" required />
+                      </div>
+                    <div class="form-group">
+                      <div class="col-lg-offset-2 col-lg-10">
+                        <a class="btn btn-info" type="button" id="btnonshelf">添加</a>
+                        <button class="btn btn-info" type="button">取消</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+        </div>
+        <footer class="app-footer">
+            <div class="wrapper"> <span class="pull-right">2.1 <a href="#"><i class="fa fa-long-arrow-up"></i></a></span> © 2015 Copyright. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+            </div>
+        </footer>
+        <div>
+            <!-- Javascript Libs -->
+            <script type="text/javascript" src="../static/admin/dist/lib/js/jquery.min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/Chart.min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/bootstrap-switch.min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/jquery.matchHeight-min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/jquery.dataTables.min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/dataTables.bootstrap.min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/select2.full.min.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/ace/ace.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/ace/mode-html.js"></script>
+            <script type="text/javascript" src="../static/admin/dist/lib/js/ace/theme-github.js"></script>
+            <!-- Javascript -->
+            <script type="text/javascript" src="../static/admin/js/app.js"></script>
+            <script type="text/javascript" src="../static/admin/js/index.js"></script>
+</body>
+<script type= "text/javascript" src= "https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script >
+        <script type="text/javascript">
+        $(document).ready(function(){
+              $("#btnonshelf").click(function(){
+                    var json = {  
+		                 'nid':$('#nid').val(),  
+		                'nname':$('#nname').val(),
+		                'author':$('#author').val(),
+		                'brief':$('#brief').val(),
+		                'nkind':$('#nkind').val()
+		                };
+                    var route = window.location.href;
+                        var postdata = JSON.stringify(json);//json对象转换json字符串
+                      alert(postdata);
+                        $.ajax({  
+                        type : 'POST',  
+                        contentType : 'application/json;charset=UTF-8',//注意类型  
+                        processData : false,  
+                        url : '/mindex/onshelf',  
+                        dataType : 'json',  
+                        data : postdata,  
+                        success : function(data) {  
+                            alert('novel : '+data.name+"添加成功");
+                           window.location.href="http://localhost:8083/mindex/user";                            		                            
+                        },  
+                        error : function(err) {  
+                            console.log(err.responseText);
+                            alert("添加失败"); 
+                            window.location.reload();
+                        }  
+                      }); 
+              });
+            });
+        </script>
+
+</html>
+
+
+   
